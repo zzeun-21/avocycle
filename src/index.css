@@ -1,0 +1,11 @@
+
+@import "tailwindcss";
+
+
+/* Base kecil untuk font & smoothing */
+:root {
+  --bg-grad-from: #eaffd8; /* hijau muda pucat */
+  --bg-grad-to: #c7f1b8;   /* hijau muda */
+}
+html, body, #root { height: 100%; }
+body { @apply antialiased text-gray-900; }

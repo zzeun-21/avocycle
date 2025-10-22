@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Brand from "../components/Brand.jsx";
 import Field, { Label } from "../components/Field.jsx";
 import Divider from "../components/Divider.jsx";
@@ -6,13 +6,19 @@ import { FcGoogle } from "react-icons/fc";
 import Button from "../components/Button.jsx";
 
 export default function Login() {
+
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+     navigate("/dashboard"); // 🔹 arahkan ke halaman dashboard
+  };
   return (
     <div>
       <Brand />
 
       <h1 className="text-[40px] leading-none sm:text-5xl font-extrabold mb-8">Sign in</h1>
 
-      <form className="max-w-xl">
+       <form onSubmit={handleSubmit} className="max-w-xl">
         <div className="mb-5">
           <Label htmlFor="email">E-mail</Label>
           <Field

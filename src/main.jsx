@@ -5,8 +5,12 @@ import "./index.css";
 import App from "./App.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
+import DashboardLayout from "./layouts/DashboardLayout.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import Plants from "./pages/Plants.jsx";
 
 const router = createBrowserRouter([
+  // Layout login & register (2 panel)
   {
     path: "/",
     element: <App />,
@@ -16,6 +20,18 @@ const router = createBrowserRouter([
       { path: "register", element: <Register /> },
     ],
   },
+
+  // Layout dashboard Avocycle
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      { index: true, element: <Dashboard /> },
+       { path: "plants", element: <Plants /> },
+    ],
+  },
+
+ 
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

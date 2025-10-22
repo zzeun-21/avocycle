@@ -1,6 +1,9 @@
 
 @import "tailwindcss";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Base kecil untuk font & smoothing */
 :root {
@@ -8,4 +11,7 @@
   --bg-grad-to: #c7f1b8;   /* hijau muda */
 }
 html, body, #root { height: 100%; }
-body { @apply antialiased text-gray-900; }
+body {
+  @apply bg-gradient-to-b from-[#d7ffce] to-[#fafff6] text-gray-800;
+  font-family: 'Poppins', sans-serif;
+}

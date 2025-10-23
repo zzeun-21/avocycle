@@ -1,6 +1,9 @@
+
 import { useState } from "react";
-import { FaEdit, FaPlus } from "react-icons/fa";
 import AddPlantModal from "./AddPlantModal";
+import { Link } from "react-router-dom";
+import { FaEdit, FaPlus } from "react-icons/fa";
+
 
 export default function Plants() {
   const [openModal, setOpenModal] = useState(false);
@@ -13,7 +16,7 @@ export default function Plants() {
       phase: "Fase Berbuah",
       health: "Sehat",
       harvest: "Ya",
-      image: "/avocado1.jpg",
+      image: "/avocado1.png",
     },
     {
       id: 2,
@@ -22,7 +25,7 @@ export default function Plants() {
       phase: "Fase Tumbuh",
       health: "Sehat",
       harvest: "Ya",
-      image: "/avocado2.jpg",
+      image: "/avocado1.png",
     },
     {
       id: 3,
@@ -31,7 +34,7 @@ export default function Plants() {
       phase: "Fase Berbunga",
       health: "Sehat",
       harvest: "Tidak",
-      image: "/avocado3.jpg",
+      image: "/avocado1.png",
     },
   ];
 
@@ -75,9 +78,12 @@ export default function Plants() {
 
             <div className="flex flex-col items-end">
               <FaEdit className="text-gray-400 hover:text-green-600 cursor-pointer mb-2" />
-              <button className="bg-green-600 text-white px-4 py-1 rounded-lg hover:bg-green-700 transition shadow">
-                Lihat Detail
-              </button>
+              <Link to={`/dashboard/plants/${plant.id}`}
+            className="bg-green-600 text-white px-4 py-1 rounded-lg hover:bg-green-700 transition shadow text-sm"
+          >
+            Lihat Detail
+          </Link>
+
             </div>
           </div>
         ))}

@@ -7,11 +7,21 @@ export default function DashboardLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen bg-gradient-to-b from-[#e4ffe0] to-[#ffffff]">
+      {/* Sidebar */}
       <Sidebar open={sidebarOpen} />
-      <div className="flex flex-col flex-1">
+
+      {/* Konten utama */}
+      <div
+        className={`flex flex-col flex-1 transition-all duration-300 ${
+          sidebarOpen ? "ml-64" : "ml-20"
+        }`}
+      >
+        {/* Navbar */}
         <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
-        <main className="p-6 bg-gradient-to-b from-[#e4ffe0] to-[#ffffff] overflow-y-auto">
+
+        {/* Konten halaman */}
+        <main className="p-6 pt-[80px] overflow-y-auto">
           <Outlet />
         </main>
       </div>

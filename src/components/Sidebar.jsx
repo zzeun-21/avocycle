@@ -1,4 +1,4 @@
-import { FaLeaf, FaPlusCircle, FaBug, FaClipboardList } from "react-icons/fa";
+import { FaLeaf, FaBug, FaClipboardList } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 
@@ -8,10 +8,16 @@ export default function Sidebar({ open }) {
 
   const menuGroups = [
     {
+      title: "Dashboard",
+      items: [
+        { name: "Dashboard", icon: <FaLeaf />, path: "/dashboard" },
+      ],
+    },
+    
+    {
       title: "Manajemen Tanaman",
       items: [
         { name: "Manajemen Pohon", icon: <FaLeaf />, path: "/dashboard/plants" },
-        { name: "Riwayat", icon: <FaPlusCircle />, path: "/dashboard/history" },
       ],
     },
     {
@@ -25,8 +31,8 @@ export default function Sidebar({ open }) {
 
   return (
     <aside
-      className={`bg-white h-screen shadow-md transition-all duration-300 ${
-        open ? "w-64" : "w-20"
+      className={`bg-white shadow-md fixed top-[56px] left-0 h-[calc(100vh-56px)] transition-all duration-300 ${
+        open ? "w-60" : "w-15"
       }`}
     >
       <div className="flex flex-col h-full py-4">
@@ -43,7 +49,7 @@ export default function Sidebar({ open }) {
                 to={item.path}
                 onClick={() => setActive(item.path)}
                 className={`flex items-center gap-3 px-4 py-2 w-full text-gray-600 hover:bg-green-50 transition ${
-                  active === item.path ? "bg-green-100 text-green-700" : ""
+                  active === item.path ? "bg-green-100 text-green-700 font-medium" : ""
                 }`}
               >
                 <span className="text-lg">{item.icon}</span>
